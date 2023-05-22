@@ -11,10 +11,9 @@ return {
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr)
-          require("astronvim.utils.buffer").close(
-            bufnr)
-        end)
+        require("astronvim.utils.status").heirline.buffer_picker(
+          function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
+        )
       end,
       desc = "Pick to close",
     },
@@ -25,6 +24,8 @@ return {
     ["[["] = { "<cmd>bn<cr>", desc = "Next buffer" },
     -- Move previous buffer
     ["]]"] = { "<cmd>bp<cr>", desc = "Previous buffer" },
+    -- Toggle between c and h
+    ["<F5>"] = { ":call CurtineIncSw()<cr>", desc = "Toggle between source code and header" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
   },
